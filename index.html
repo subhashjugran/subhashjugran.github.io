@@ -7,7 +7,7 @@
   <meta name="description" content="Portfolio of Subhash Jugran — Cloud Architect, DevSecOps leader, Kubernetes practitioner, and AI enthusiast focused on secure cloud platforms and intelligent automation." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -18,11 +18,14 @@
         <a href="#about">About</a>
         <a href="#certifications">Certifications</a>
         <a href="#capabilities">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#insights">Blogs</a>
+        <a href="#projects" id="nav-projects">Projects</a>
+        <a href="#projects" data-activate-tab="blogs" id="nav-blogs">Blogs</a>
         <a href="#contact">Contact</a>
       </nav>
       <a class="resume-link desktop-only" href="Subhash_Jugran.pdf" target="_blank" rel="noreferrer">Download Resume</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Switch theme">
+        <span class="theme-icon">🌙</span>
+      </button>
       <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
     </header>
 
@@ -34,8 +37,8 @@
           <p class="lead">Subhash Jugran is a cloud architect focused on scalable multi-cloud platforms, platform engineering, Kubernetes, DevSecOps, and practical generative AI adoption.</p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">Explore Projects</a>
-            <a class="btn btn-secondary" href="Subhash_Jugran_Resume.pdf" target="_blank" rel="noreferrer">View Resume</a>
+            <a class="btn btn-primary" href="#projects" id="btn-explore">Explore Projects</a>
+            <a class="btn btn-secondary" href="Subhash_Jugran.pdf" target="_blank" rel="noreferrer">View Resume</a>
           </div>
 
           <div class="hero-metrics">
@@ -223,33 +226,217 @@
         </div>
 
         <div class="tab-panel" id="panel-blogs" role="tabpanel" aria-labelledby="tab-blogs">
-          <div class="project-grid">
-            <article class="project-card">
-              <span class="project-tag">Blog Idea</span>
-              <h3>Building AI-ready cloud foundations</h3>
-              <p>A blog topic focused on governance, vector-ready data access, observability and enterprise readiness for GenAI.</p>
-            </article>
-            <article class="project-card">
-               <a href="https://medium.com/@subhashjugran/how-to-host-a-private-https-static-website-on-aws-with-s3-alb-and-s3-vpc-endpoint-92fd46e4027f" 
-                  target="_blank" 
-                  rel="noopener noreferrer">
-     
-                  <span class="project-tag">Blog Idea</span>
-                  <h3>Hosting a Private HTTPS (Secure) Static Website on AWS with S3</h3>
-                  <p>Learn how practical solution for serving internal static sites over HTTPS without exposing your S3 bucket to the public internet.</p>
-                  <p>Click to read the full article</p>
+
+          <div class="blog-controls">
+            <div class="blog-filter-bar" role="group" aria-label="Filter blogs by category">
+              <button class="blog-filter-btn active" data-filter="all" id="filter-all">All <span class="count-badge" id="count-all"></span></button>
+              <button class="blog-filter-btn" data-filter="agentic-ai" id="filter-agentic-ai">🤖 Agentic AI</button>
+              <button class="blog-filter-btn" data-filter="generative-ai" id="filter-generative-ai">🎨 Generative AI</button>
+              <button class="blog-filter-btn" data-filter="ml" id="filter-ml">🧠 ML &amp; Deep Learning</button>
+              <button class="blog-filter-btn" data-filter="cloud" id="filter-cloud">☁️ Cloud</button>
+              <button class="blog-filter-btn" data-filter="perspectives" id="filter-perspectives">💡 Perspectives</button>
+            </div>
+            <div class="blog-select-wrap">
+              <select class="blog-select" id="blog-category-select" aria-label="Select blog category">
+                <option value="all">All Categories</option>
+                <option value="agentic-ai">🤖 Agentic AI</option>
+                <option value="generative-ai">🎨 Generative AI</option>
+                <option value="ml">🧠 ML &amp; Deep Learning</option>
+                <option value="cloud">☁️ Cloud</option>
+                <option value="perspectives">💡 Perspectives</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="blog-grid" id="blog-grid">
+
+            <!-- ── Agentic AI ─────────────────────────── -->
+            <article class="blog-card" data-category="agentic-ai">
+              <a href="https://medium.com/generative-ai/building-the-same-rag-assistant-3-ways-langchain-vs-langgraph-vs-strands-agents-298743d6b4d4" target="_blank" rel="noopener noreferrer">
+                <div class="blog-card-inner">
+                  <div class="blog-meta">
+                    <span class="blog-tag agentic-tag">🤖 Agentic AI</span>
+                    <span class="blog-date">2026</span>
+                  </div>
+                  <h3>Building the Same RAG Assistant 3 Ways: LangChain vs LangGraph vs Strands Agents</h3>
+                  <p>A hands-on comparison of three leading frameworks for building RAG assistants — revealing trade-offs in control, complexity, and production readiness.</p>
+                  <span class="read-more">Read on Medium →</span>
+                </div>
               </a>
             </article>
-            <article class="project-card">
-              <span class="project-tag">Blog Idea</span>
-              <h3>Platform engineering for secure delivery</h3>
-              <p>A post about reusable modules, guardrails, CI/CD quality gates and reducing delivery friction at scale.</p>
+
+            <article class="blog-card" data-category="agentic-ai">
+              <a href="https://medium.com/@subhashjugran/designing-a-local-first-multi-agent-system-with-ollama-and-fastapi-dda5455c271b" target="_blank" rel="noopener noreferrer">
+                <div class="blog-card-inner">
+                  <div class="blog-meta">
+                    <span class="blog-tag agentic-tag">🤖 Agentic AI</span>
+                    <span class="blog-date">2026</span>
+                  </div>
+                  <h3>Designing a Local-First Multi-Agent System with Ollama and FastAPI</h3>
+                  <p>How to build a fully local, privacy-preserving multi-agent system using Ollama for LLM inference and FastAPI for orchestration — no cloud required.</p>
+                  <span class="read-more">Read on Medium →</span>
+                </div>
+              </a>
             </article>
-            <article class="project-card">
-              <span class="project-tag">Blog Idea</span>
-              <h3>Kubernetes operations with an architect lens</h3>
-              <p>A practical write-up around cluster standards, networking, observability and lifecycle management.</p>
+
+            <article class="blog-card" data-category="agentic-ai">
+              <a href="https://medium.com/@subhashjugran/ai-tokenomics-the-architects-guide-to-tokens-context-and-cost-401dd565f2f6" target="_blank" rel="noopener noreferrer">
+                <div class="blog-card-inner">
+                  <div class="blog-meta">
+                    <span class="blog-tag agentic-tag">🤖 Agentic AI</span>
+                    <span class="blog-date">Aug 9, 2026</span>
+                  </div>
+                  <h3>AI Tokenomics: The Architect's Guide to Tokens, Context and Cost</h3>
+                  <p>Why understanding tokens is becoming as important as CPU, memory and network when designing enterprise AI systems at scale.</p>
+                  <span class="read-more">Read on Medium →</span>
+                </div>
+              </a>
             </article>
+
+            <article class="blog-card" data-category="agentic-ai">
+              <a href="https://medium.com/@subhashjugran/from-alert-storm-to-root-cause-d76657711b5c" target="_blank" rel="noopener noreferrer">
+                <div class="blog-card-inner">
+                  <div class="blog-meta">
+                    <span class="blog-tag agentic-tag">🤖 Agentic AI</span>
+                    <span class="blog-date">Jul 30, 2026</span>
+                  </div>
+                  <h3>The AI-Powered DevOps Teammate: A Deep Dive into AWS DevOps Agent</h3>
+                  <p>Architecture, incident workflow, enterprise guardrails and the practical path to AI-assisted cloud operations using the new AWS DevOps Agent.</p>
+                  <span class="read-more">Read on Medium →</span>
+                </div>
+              </a>
+            </article>
+
+            <article class="blog-card" data-category="agentic-ai">
+              <a href="https://towardsaws.com/building-production-ai-agents-on-aws-bedrock-agentcore-the-next-generation-multi-agent-system-a529998939bd" target="_blank" rel="noopener noreferrer">
+                <div class="blog-card-inner">
+                  <div class="blog-meta">
+                    <span class="blog-tag agentic-tag">🤖 Agentic AI</span>
+                    <span class="blog-date">Jul 21, 2026</span>
+                  </div>
+                  <h3>Building Production AI Agents on AWS Bedrock AgentCore: Next-Generation Multi-Agent System</h3>
+                  <p>A deep dive into the production-grade platform for building, deploying and operating enterprise AI agents at scale — and why AgentCore replaces Classic.</p>
+                  <span class="read-more">Read on Medium →</span>
+                </div>
+              </a>
+            </article>
+
+            <article class="blog-card" data-category="agentic-ai">
+              <a href="https://towardsaws.com/architecting-a-multi-agent-ai-travel-planner-on-aws-integrating-live-flights-grounded-hotels-rag-2fab54deb1a2" target="_blank" rel="noopener noreferrer">
+                <div class="blog-card-inner">
+                  <div class="blog-meta">
+                    <span class="blog-tag agentic-tag">🤖 Agentic AI</span>
+                    <span class="blog-date">Aug 2, 2026</span>
+                  </div>
+                  <h3>Architecting a Multi-Agent AI Travel Planner on AWS with Live Flights, RAG &amp; Hotels</h3>
+                  <p>Build and deploy a multi-agent AI travel planner integrating Aviationstack, RAG, grounded hotel search and AWS Fargate infrastructure with Terraform.</p>
+                  <span class="read-more">Read on Medium →</span>
+                </div>
+              </a>
+            </article>
+
+            <article class="blog-card" data-category="agentic-ai">
+              <a href="https://medium.com/@subhashjugran/building-a-multi-agent-ai-support-system-on-aws-with-bedrock-agents-and-terraform-b0f7b08aea70" target="_blank" rel="noopener noreferrer">
+                <div class="blog-card-inner">
+                  <div class="blog-meta">
+                    <span class="blog-tag agentic-tag">🤖 Agentic AI</span>
+                    <span class="blog-date">Jul 12, 2026</span>
+                  </div>
+                  <h3>Building a Multi-Agent AI Support System on AWS with Bedrock Agents and Terraform</h3>
+                  <p>A team of specialized AI agents — Supervisor, Order Management and Returns — orchestrated using Amazon Bedrock with full Terraform IaC.</p>
+                  <span class="read-more">Read on Medium →</span>
+                </div>
+              </a>
+            </article>
+
+            <!-- ── Generative AI ──────────────────────── -->
+            <article class="blog-card" data-category="generative-ai">
+              <a href="https://medium.com/@subhashjugran/diffusion-models-how-ai-learns-to-create-images-by-first-destroying-a9ed9242797d" target="_blank" rel="noopener noreferrer">
+                <div class="blog-card-inner">
+                  <div class="blog-meta">
+                    <span class="blog-tag genai-tag">🎨 Generative AI</span>
+                    <span class="blog-date">2026</span>
+                  </div>
+                  <h3>Diffusion Models: How AI Learns to Create Images by First Destroying Them</h3>
+                  <p>A deep dive into the forward and reverse diffusion process — noise schedules, U-Net denoisers, DDPM vs DDIM sampling, and real-world applications beyond art.</p>
+                  <span class="read-more">Read on Medium →</span>
+                </div>
+              </a>
+            </article>
+
+            <article class="blog-card" data-category="generative-ai">
+              <a href="https://generativeai.pub/vaes-and-gans-two-classic-generative-ai-ideas-that-still-feel-like-magic-d2f6dc1237fd" target="_blank" rel="noopener noreferrer">
+                <div class="blog-card-inner">
+                  <div class="blog-meta">
+                    <span class="blog-tag genai-tag">🎨 Generative AI</span>
+                    <span class="blog-date">Jun 7, 2026</span>
+                  </div>
+                  <h3>VAEs and GANs: Two Classic Generative AI Ideas That Still Feel Like Magic</h3>
+                  <p>How hidden maps and creative competition taught machines to generate — and why VAEs and GANs remain essential foundations of modern generative AI.</p>
+                  <span class="read-more">Read on Medium →</span>
+                </div>
+              </a>
+            </article>
+
+            <!-- ── ML & Deep Learning ─────────────────── -->
+            <article class="blog-card" data-category="ml">
+              <a href="https://medium.com/@subhashjugran/teaching-a-transformer-to-read-movie-reviews-a-hands-on-imdb-sentiment-classifier-521083fb0e10" target="_blank" rel="noopener noreferrer">
+                <div class="blog-card-inner">
+                  <div class="blog-meta">
+                    <span class="blog-tag ml-tag">🧠 ML &amp; Deep Learning</span>
+                    <span class="blog-date">May 18, 2026</span>
+                  </div>
+                  <h3>Teaching a Transformer to Read Movie Reviews: A Hands-On IMDB Sentiment Classifier</h3>
+                  <p>Building two Transformer models from scratch in Keras, comparing them fairly, and learning why positional encoding is not just decoration.</p>
+                  <span class="read-more">Read on Medium →</span>
+                </div>
+              </a>
+            </article>
+
+            <!-- ── Cloud ─────────────────────────────── -->
+            <article class="blog-card" data-category="cloud">
+              <a href="https://medium.com/@subhashjugran/aws-landing-zone-the-foundation-you-should-build-before-your-first-production-workload-bf93ce30afc9" target="_blank" rel="noopener noreferrer">
+                <div class="blog-card-inner">
+                  <div class="blog-meta">
+                    <span class="blog-tag cloud-tag">☁️ Cloud</span>
+                    <span class="blog-date">Aug 9, 2026</span>
+                  </div>
+                  <h3>AWS Landing Zone: The Foundation You Should Build Before Your First Production Workload</h3>
+                  <p>Multi-account governance, security guardrails, centralized logging, networking and Terraform — the operating model for enterprise cloud platforms.</p>
+                  <span class="read-more">Read on Medium →</span>
+                </div>
+              </a>
+            </article>
+
+            <article class="blog-card" data-category="cloud">
+              <a href="https://medium.com/@subhashjugran/how-to-host-a-private-https-static-website-on-aws-with-s3-alb-and-s3-vpc-endpoint-92fd46e4027f" target="_blank" rel="noopener noreferrer">
+                <div class="blog-card-inner">
+                  <div class="blog-meta">
+                    <span class="blog-tag cloud-tag">☁️ Cloud</span>
+                    <span class="blog-date">2026</span>
+                  </div>
+                  <h3>How to Host a Private HTTPS Static Website on AWS with S3, ALB and VPC Endpoint</h3>
+                  <p>A practical solution for serving internal static sites over HTTPS without exposing your S3 bucket to the public internet.</p>
+                  <span class="read-more">Read on Medium →</span>
+                </div>
+              </a>
+            </article>
+
+            <!-- ── Perspectives ───────────────────────── -->
+            <article class="blog-card" data-category="perspectives">
+              <a href="https://medium.com/@subhashjugran/from-bubble-tea-to-bookings-how-ai-is-quietly-transforming-small-businesses-in-singapore-bbc2edae82a1" target="_blank" rel="noopener noreferrer">
+                <div class="blog-card-inner">
+                  <div class="blog-meta">
+                    <span class="blog-tag perspectives-tag">💡 Perspectives</span>
+                    <span class="blog-date">2026</span>
+                  </div>
+                  <h3>From Bubble Tea to Bookings: How AI is Quietly Transforming Small Businesses in Singapore</h3>
+                  <p>A ground-level look at how Singapore's SMBs — from F&amp;B to retail to services — are quietly adopting AI tools to improve operations and customer experience.</p>
+                  <span class="read-more">Read on Medium →</span>
+                </div>
+              </a>
+            </article>
+
           </div>
         </div>
       </section>
