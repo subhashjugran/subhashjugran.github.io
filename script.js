@@ -66,15 +66,7 @@ if (exploreBtn) {
   });
 }
 
-// ── Nav "Blogs" link → scroll + activate Blogs tab ───────────
-const navBlogsLink = document.getElementById('nav-blogs');
-if (navBlogsLink) {
-  navBlogsLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-    setTimeout(() => activateTab('blogs'), 250);
-  });
-}
+// ── Nav "Blogs" link → now a real href to /blog (no JS needed) ─
 
 // ── Mobile menu ──────────────────────────────────────────────
 const menuToggle = document.querySelector('.menu-toggle');
